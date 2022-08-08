@@ -1,4 +1,4 @@
-# Pycell
+# pycell
 ## Cellular automata simulation written in Python
 ### Features
 - Basic rectangular grid (currently not zoomable/scrollable)
