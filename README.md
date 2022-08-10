@@ -8,9 +8,9 @@
 
 ### Planned Features (in order of priority)
 - Zoomable/scrollable infinite grid with optional grid lines
+- Move grid calculations to a C module on a separate thread
 - Saving and loading of sheets
 - Cell selection and copy/paste
-- Benchmark step speed (as fast as possible, several steps per frame)
 - Option to limit grid size (with the option to wrap cells to the other side)
 - More automata rulesets
 - Support for more cell states

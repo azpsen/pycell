@@ -105,6 +105,8 @@ class UI:
                     if imgui.menu_item("Save Cells...", "Ctrl+S")[0]:
                         pass
                     imgui.separator()
+                    _, self.show_settings = imgui.menu_item("Settings", None, self.show_settings)
+                    imgui.separator()
                     if imgui.menu_item("Quit", "Ctrl+Q")[0]:
                         self.exit()
                     imgui.end_menu()
@@ -122,10 +124,11 @@ class UI:
                         imgui.end_menu()
                     imgui.end_menu()
                 if imgui.begin_menu("View"):
+                    _, self.config.show_grid = imgui.menu_item("Show Grid", None, self.config.show_grid)
+                    imgui.separator()
                     if imgui.begin_menu("Tool Windows"):
                         _, self.show_stats = imgui.menu_item("Stats", None, self.show_stats)
                         _, self.show_parameters = imgui.menu_item("Parameters", None, self.show_parameters)
-                        _, self.show_settings = imgui.menu_item("Settings", None, self.show_settings)
                         _, self.show_controls = imgui.menu_item("Controls", None, self.show_controls)
                         _, self.show_demo = imgui.menu_item("Demo Window", None, self.show_demo)
                         imgui.end_menu()
@@ -150,6 +153,7 @@ class UI:
             imgui.plot_lines("avg: " + str(self.avg_update) + "ms", self.update_history)
             imgui.text("Cells Updated? " + self.cells_updated)
             imgui.text("Any window focused? " + str(self.focus))
+            imgui.text("Stepping? " + str(self.stepping))
 
             imgui.end()
 
@@ -166,31 +170,20 @@ class UI:
             if imgui.button("Step"):
                 self.step = True
             imgui.same_line()
-            if imgui.button("Start"):
-                self.stepping = True
-            imgui.same_line()
-            if imgui.button("Pause"):
-                self.stepping = False
-            if imgui.button(">"):
-                self.config.step_speed = 0
-            imgui.same_line()
-            if imgui.button(">>"):
-                self.config.step_speed = 1
-            imgui.same_line()
-            if imgui.button(">>>"):
-                self.config.step_speed = 2
-            imgui.same_line()
-            if imgui.button(">>>>"):
-                self.config.step_speed = 3
+            if imgui.button("Start/Stop"):
+                self.stepping = not self.stepping
+            if imgui.is_item_hovered():
+                imgui.set_tooltip("Space")
+            _, self.config.step_speed = imgui.slider_int("Steps / Second", self.config.step_speed,
+                                                         min_value=self.config.min_step,
+                                                         max_value=self.config.max_step)
+            _, self.config.steps_per_frame = imgui.slider_int("Steps / Frame", self.config.steps_per_frame,
+                                                              min_value=self.config.min_step_per_frame,
+                                                              max_value=self.config.max_step_per_frame)
             imgui.end()
 
         if self.show_settings:
             _, self.show_settings = imgui.begin("Settings", closable=True)
-
-            old_grid = self.config.show_grid
-            _, self.config.show_grid = imgui.checkbox("Show Grid", self.config.show_grid)
-            if not old_grid == self.config.show_grid:
-                self.change_grid_color = True
 
             _, self.config.ask_clear = imgui.checkbox("Ask Before Clearing", self.config.ask_clear)
             if not self.show_clear_modal and not self.config.ask_clear == self.ask_next:
