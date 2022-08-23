@@ -1,13 +1,14 @@
 # pycell
 ## Cellular automata simulation written in Python
+![image](https://user-images.githubusercontent.com/58403923/186240347-9ec4c31e-f01d-4fd1-9df9-ca46d13753fb.png)
 ### Features
-- Basic rectangular grid (currently not zoomable/scrollable)
+- Basic rectangular grid
 - Cells represented through a sparse matrix
 - Ability to run simulation at different speeds, view statistics, and configure the display
 - Support for multiple automata rulesets
 
 ### Planned Features (in order of priority)
-- Zoomable/scrollable infinite grid with optional grid lines
+- Improved zoomable/scrollable infinite grid with optional grid lines
 - Move grid calculations to a C module on a separate thread
 - Saving and loading of sheets
 - Cell selection and copy/paste
