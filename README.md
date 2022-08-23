@@ -1,27 +1,27 @@
 # pycell
-## Cellular automata simulation written in Python
-![image](https://user-images.githubusercontent.com/58403923/186240347-9ec4c31e-f01d-4fd1-9df9-ca46d13753fb.png)
-### Features
-- Basic rectangular grid
-- Cells represented through a sparse matrix
-- Ability to run simulation at different speeds, view statistics, and configure the display
-- Support for multiple automata rulesets
+## cellular automata simulation written in Python
+![image](https://user-images.githubusercontent.com/58403923/186241217-2acf3c8e-6882-4047-bec3-86579b8963d8.png)
+### features
+- baic rectangular grid
+- cells represented through a sparse matrix
+- ability to run simulation at different speeds, view statistics, and configure the display
+- support for multiple automata rulesets
 
-### Planned Features (in order of priority)
-- Improved zoomable/scrollable infinite grid with optional grid lines
-- Move grid calculations to a C module on a separate thread
-- Saving and loading of sheets
-- Cell selection and copy/paste
-- Option to limit grid size (with the option to wrap cells to the other side)
-- More automata rulesets
-- Support for more cell states
-- Support for different grid types (hexagonal?)
+### planned features (in order of priority)
+- improved zoomable/scrollable infinite grid with optional grid lines
+- move grid calculations to a C module on a separate thread
+- saving and loading of sheets
+- cell selection and copy/paste
+- option to limit grid size (with the option to wrap cells to the other side)
+- more automata rulesets
+- support for more cell states
+- support for different grid types (hexagonal?)
 
-### Requirements
+### requirements
 - pyglet
 - PyOpenGL
 - pyimgui
 
-### Recommendations
-- Install numpy to prevent PyOpenGL warnings
-- Run under [PyPy](http://https://www.pypy.org/ "PyPy") to increase performance
+### recommendations
+- install numpy to prevent PyOpenGL warnings
+- run under [PyPy](http://https://www.pypy.org/ "PyPy") to increase performance
