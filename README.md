@@ -2,7 +2,7 @@
 ## cellular automata simulation written in Python
 ![image](https://user-images.githubusercontent.com/58403923/186241217-2acf3c8e-6882-4047-bec3-86579b8963d8.png)
 ### features
-- baic rectangular grid
+- basic rectangular grid
 - cells represented through a sparse matrix
 - ability to run simulation at different speeds, view statistics, and configure the display
 - support for multiple automata rulesets
